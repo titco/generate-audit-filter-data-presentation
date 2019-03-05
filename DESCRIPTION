@@ -8,7 +8,7 @@ Imports: RMySQL,
 	 rmarkdown,
 	 DBI,
 	 tableone,
-	 knitr
+	 knitr,
 	 RCurl,
 	 readtext,
 	 jsonlite,
