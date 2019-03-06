@@ -1,0 +1,320 @@
+code,short_mechanism,full_mechanism
+V01,Transport accident,Pedestrian injured in collision with pedal cycle
+V02,Transport accident,Pedestrian injured in collision with two- or three-wheeled motor vehicle
+V03,Transport accident,"Pedestrian injured in collision with car, pick-up truck or van"
+V04,Transport accident,Pedestrian injured in collision with heavy transport vehicle or bus
+V05,Transport accident,Pedestrian injured in collision with railway train or railway vehicle
+V06,Transport accident,Pedestrian injured in collision with other nonmotor vehicle
+V09,Transport accident,Pedestrian injured in other and unspecified transport accidents
+V10,Transport accident,Pedal cyclist injured in collision with pedestrian or animal
+V11,Transport accident,Pedal cyclist injured in collision with other pedal cycle
+V12,Transport accident,Pedal cyclist injured in collision with two- or three-wheeled motor vehicle
+V13,Transport accident,"Pedal cyclist injured in collision with car, pick-up truck or van"
+V14,Transport accident,Pedal cyclist injured in collision with heavy transport vehicle or bus
+V15,Transport accident,Pedal cyclist injured in collision with railway train or railway vehicle
+V16,Transport accident,Pedal cyclist injured in collision with other nonmotor vehicle
+V17,Transport accident,Pedal cyclist injured in collision with fixed or stationary object
+V18,Transport accident,Pedal cyclist injured in noncollision transport accident
+V19,Transport accident,Pedal cyclist injured in other and unspecified transport accidents
+V20,Transport accident,Motorcycle rider injured in collision with pedestrian or animal
+V21,Transport accident,Motorcycle rider injured in collision with pedal cycle
+V22,Transport accident,Motorcycle rider injured in collision with two- or three-wheeled motor vehicle
+V23,Transport accident,"Motorcycle rider injured in collision with car, pick-up truck or van"
+V24,Transport accident,Motorcycle rider injured in collision with heavy transport vehicle or bus
+V25,Transport accident,Motorcycle rider injured in collision with railway train or railway vehicle
+V26,Transport accident,Motorcycle rider injured in collision with other nonmotor vehicle
+V27,Transport accident,Motorcycle rider injured in collision with fixed or stationary object
+V28,Transport accident,Motorcycle rider injured in noncollision transport accident
+V29,Transport accident,Motorcycle rider injured in other and unspecified transport accidents
+V30,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with pedestrian or animal
+V31,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with pedal cycle
+V32,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with two- or three-wheeled motor vehicle
+V33,Transport accident,"Occupant of three-wheeled motor vehicle injured in collision with car, pick-up truck or van"
+V34,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with heavy transport vehicle or bus
+V35,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with railway train or railway vehicle
+V36,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with other nonmotor vehicle
+V37,Transport accident,Occupant of three-wheeled motor vehicle injured in collision with fixed or stationary object
+V38,Transport accident,Occupant of three-wheeled motor vehicle injured in noncollision transport accident
+V39,Transport accident,Occupant of three-wheeled motor vehicle injured in other and unspecified transport accidents
+V40,Transport accident,Car occupant injured in collision with pedestrian or animal
+V41,Transport accident,Car occupant injured in collision with pedal cycle
+V42,Transport accident,Car occupant injured in collision with two- or three-wheeled motor vehicle
+V43,Transport accident,"Car occupant injured in collision with car, pick-up truck or van"
+V44,Transport accident,Car occupant injured in collision with heavy transport vehicle or bus
+V45,Transport accident,Car occupant injured in collision with railway train or railway vehicle
+V46,Transport accident,Car occupant injured in collision with other nonmotor vehicle
+V47,Transport accident,Car occupant injured in collision with fixed or stationary object
+V48,Transport accident,Car occupant injured in noncollision transport accident
+V49,Transport accident,Car occupant injured in other and unspecified transport accidents
+V50,Transport accident,Occupant of pick-up truck or van injured in collision with pedestrian or animal
+V51,Transport accident,Occupant of pick-up truck or van injured in collision with pedal cycle
+V52,Transport accident,Occupant of pick-up truck or van injured in collision with two- or three-wheeled motor vehicle
+V53,Transport accident,"Occupant of pick-up truck or van injured in collision with car, pick-up truck or van"
+V54,Transport accident,Occupant of pick-up truck or van injured in collision with heavy transport vehicle or bus
+V55,Transport accident,Occupant of pick-up truck or van injured in collision with railway train or railway vehicle
+V56,Transport accident,Occupant of pick-up truck or van injured in collision with other nonmotor vehicle
+V57,Transport accident,Occupant of pick-up truck or van injured in collision with fixed or stationary object
+V58,Transport accident,Occupant of pick-up truck or van injured in noncollision transport accident
+V59,Transport accident,Occupant of pick-up truck or van injured in other and unspecified transport accidents
+V60,Transport accident,Occupant of heavy transport vehicle injured in collision with pedestrian or animal
+V61,Transport accident,Occupant of heavy transport vehicle injured in collision with pedal cycle
+V62,Transport accident,Occupant of heavy transport vehicle injured in collision with two- or three-wheeled motor vehicle
+V63,Transport accident,"Occupant of heavy transport vehicle injured in collision with car, pick-up truck or van"
+V64,Transport accident,Occupant of heavy transport vehicle injured in collision with heavy transport vehicle or bus
+V65,Transport accident,Occupant of heavy transport vehicle injured in collision with railway train or railway vehicle
+V66,Transport accident,Occupant of heavy transport vehicle injured in collision with other nonmotor vehicle
+V67,Transport accident,Occupant of heavy transport vehicle injured in collision with fixed or stationary object
+V68,Transport accident,Occupant of heavy transport vehicle injured in noncollision transport accident
+V69,Transport accident,Occupant of heavy transport vehicle injured in other and unspecified transport accidents
+V70,Transport accident,Bus occupant injured in collision with pedestrian or animal
+V71,Transport accident,Bus occupant injured in collision with pedal cycle
+V72,Transport accident,Bus occupant injured in collision with two- or three-wheeled motor vehicle
+V73,Transport accident,"Bus occupant injured in collision with car, pick-up truck or van"
+V74,Transport accident,Bus occupant injured in collision with heavy transport vehicle or bus
+V75,Transport accident,Bus occupant injured in collision with railway train or railway vehicle
+V76,Transport accident,Bus occupant injured in collision with other nonmotor vehicle
+V77,Transport accident,Bus occupant injured in collision with fixed or stationary object
+V78,Transport accident,Bus occupant injured in noncollision transport accident
+V79,Transport accident,Bus occupant injured in other and unspecified transport accidents
+V80,Transport accident,Animal-rider or occupant of animal-drawn vehicle injured in transport accident
+V81,Transport accident,Occupant of railway train or railway vehicle injured in transport accident
+V82,Transport accident,Occupant of streetcar injured in transport accident
+V83,Transport accident,Occupant of special vehicle mainly used on industrial premises injured in transport accident
+V84,Transport accident,Occupant of special vehicle mainly used in agriculture injured in transport accident
+V85,Transport accident,Occupant of special construction vehicle injured in transport accident
+V86,Transport accident,"Occupant of special all-terrain or other motor vehicle designed primarily for off-road use, injured in transport accident"
+V87,Transport accident,Traffic accident of specified type but victim's mode of transport unknown
+V88,Transport accident,Nontraffic accident of specified type but victim's mode of transport unknown
+V89,Transport accident,"Motor- or nonmotor-vehicle accident, type of vehicle unspecified"
+V90,Transport accident,Accident to watercraft causing drowning and submersion
+V91,Transport accident,Accident to watercraft causing other injury
+V92,Transport accident,Water-transport-related drowning and submersion without accident to watercraft
+V93,Transport accident,"Accident on board watercraft without accident to watercraft, not causing drowning and submersion"
+V94,Transport accident,Other and unspecified water transport accidents
+V95,Transport accident,Accident to powered aircraft causing injury to occupant
+V96,Transport accident,Accident to nonpowered aircraft causing injury to occupant
+V97,Transport accident,Other specified air transport accidents
+V98,Transport accident,Other specified transport accidents
+V99,Transport accident,Unspecified transport accident
+W00,Fall,Fall on same level involving ice and snow
+W01,Fall,"Fall on same level from slipping, tripping and stumbling"
+W02,Fall,"Fall involving ice-skates, skis, roller-skates or skateboards"
+W03,Fall,"Other fall on same level due to collision with, or pushing by, another person"
+W04,Fall,Fall while being carried or supported by other persons
+W05,Fall,Fall involving wheelchair
+W06,Fall,Fall involving bed
+W07,Fall,Fall involving chair
+W08,Fall,Fall involving other furniture
+W09,Fall,Fall involving playground equipment
+W10,Fall,Fall on and from stairs and steps
+W11,Fall,Fall on and from ladder
+W12,Fall,Fall on and from scaffolding
+W13,Fall,"Fall from, out of or through building or structure"
+W14,Fall,Fall from tree
+W15,Fall,Fall from cliff
+W16,Fall,Diving or jumping into water causing injury other than drowning or submersion
+W17,Fall,Other fall from one level to another
+W18,Fall,Other fall on same level
+W19,Fall,Unspecified fall
+W20,Other external cause,"Struck by thrown, projected or falling object"
+W21,Other external cause,Striking against or struck by sports equipment
+W22,Other external cause,Striking against or struck by other objects
+W23,Other external cause,"Caught, crushed, jammed or pinched in or between objects"
+W24,Other external cause,"Contact with lifting and transmission devices, not elsewhere classified"
+W25,Other external cause,Contact with sharp glass
+W26,Other external cause,Contact with other sharp object(s)
+W27,Other external cause,Contact with nonpowered hand tool
+W28,Other external cause,Contact with powered lawnmower
+W29,Other external cause,Contact with other powered hand tools and household machinery
+W30,Other external cause,Contact with agricultural machinery
+W31,Other external cause,Contact with other and unspecified machinery
+W32,Other external cause,Handgun discharge
+W33,Other external cause,"Rifle, shotgun and larger firearm discharge"
+W34,Other external cause,Discharge from other and unspecified firearms
+W35,Other external cause,Explosion and rupture of boiler
+W36,Other external cause,Explosion and rupture of gas cylinder
+W37,Other external cause,"Explosion and rupture of pressurized tyre, pipe or hose"
+W38,Other external cause,Explosion and rupture of other specified pressurized devices
+W39,Other external cause,Discharge of firework
+W40,Other external cause,Explosion of other materials
+W41,Other external cause,Exposure to high-pressure jet
+W42,Other external cause,Exposure to noise
+W43,Other external cause,Exposure to vibration
+W44,Other external cause,Foreign body entering into or through eye or natural orifice
+W45,Other external cause,Foreign body or object entering through skin
+W46,Other external cause,Contact with hypodermic needle
+W49,Other external cause,Exposure to other and unspecified inanimate mechanical forces
+W50,Other external cause,"Hit, struck, kicked, twisted, bitten or scratched by another person"
+W51,Other external cause,Striking against or bumped into by another person
+W52,Other external cause,"Crushed, pushed or stepped on by crowd or human stampede"
+W53,Other external cause,Bitten by rat
+W54,Other external cause,Bitten or struck by dog
+W55,Other external cause,Bitten or struck by other mammals
+W56,Other external cause,Contact with marine animal
+W57,Other external cause,Bitten or stung by nonvenomous insect and other nonvenomous arthropods
+W58,Other external cause,Bitten or struck by crocodile or alligator
+W59,Other external cause,Bitten or crushed by other reptiles
+W60,Other external cause,Contact with plant thorns and spines and sharp leaves
+W64,Other external cause,Exposure to other and unspecified animate mechanical forces
+W65,Other external cause,Drowning and submersion while in bath-tub
+W66,Other external cause,Drowning and submersion following fall into bath-tub
+W67,Other external cause,Drowning and submersion while in swimming-pool
+W68,Other external cause,Drowning and submersion following fall into swimming-pool
+W69,Other external cause,Drowning and submersion while in natural water
+W70,Other external cause,Drowning and submersion following fall into natural water
+W73,Other external cause,Other specified drowning and submersion
+W74,Other external cause,Unspecified drowning and submersion
+W75,Other external cause,Accidental suffocation and strangulation in bed
+W76,Other external cause,Other accidental hanging and strangulation
+W77,Other external cause,"Threat to breathing due to cave-in, falling earth and other substances"
+W78,Other external cause,Inhalation of gastric contents
+W79,Other external cause,Inhalation and ingestion of food causing obstruction of respiratory tract
+W80,Other external cause,Inhalation and ingestion of other objects causing obstruction of respiratory tract
+W81,Other external cause,Confined to or trapped in a low-oxygen environment
+W83,Other external cause,Other specified threats to breathing
+W84,Other external cause,Unspecified threat to breathing
+W85,Other external cause,Exposure to electric transmission lines
+W86,Other external cause,Exposure to other specified electric current
+W87,Other external cause,Exposure to unspecified electric current
+W88,Other external cause,Exposure to ionizing radiation
+W89,Other external cause,Exposure to man-made visible and ultraviolet light
+W90,Other external cause,Exposure to other nonionizing radiation
+W91,Other external cause,Exposure to unspecified type of radiation
+W92,Other external cause,Exposure to excessive heat of man-made origin
+W93,Other external cause,Exposure to excessive cold of man-made origin
+W94,Other external cause,Exposure to high and low air pressure and changes in air pressure
+W99,Other external cause,Exposure to other and unspecified man-made environmental factors
+X00,Burn,Exposure to uncontrolled fire in building or structure
+X01,Burn,"Exposure to uncontrolled fire, not in building or structure"
+X02,Burn,Exposure to controlled fire in building or structure
+X03,Burn,"Exposure to controlled fire, not in building or structure"
+X04,Burn,Exposure to ignition of highly flammable material
+X05,Burn,Exposure to ignition or melting of nightwear
+X06,Burn,Exposure to ignition or melting of other clothing and apparel
+X08,Burn,"Exposure to other specified smoke, fire and flames"
+X09,Burn,"Exposure to unspecified smoke, fire and flames"
+X10,Burn,"Contact with hot drinks, food, fats and cooking oils"
+X11,Burn,Contact with hot tap-water
+X12,Burn,Contact with other hot fluids
+X13,Burn,Contact with steam and hot vapours
+X14,Burn,Contact with hot air and gases
+X15,Burn,Contact with hot household appliances
+X16,Burn,"Contact with hot heating appliances, radiators and pipes"
+X17,Burn,"Contact with hot engines, machinery and tools"
+X18,Burn,Contact with other hot metals
+X19,Burn,Contact with other and unspecified heat and hot substances
+X20,Other external cause,Contact with venomous snakes and lizards
+X21,Other external cause,Contact with venomous spiders
+X22,Other external cause,Contact with scorpions
+X23,Other external cause,"Contact with hornets, wasps and bees"
+X24,Other external cause,Contact with centipedes and venomous millipedes (tropical)
+X25,Other external cause,Contact with other venomous arthropods
+X26,Other external cause,Contact with venomous marine animals and plants
+X27,Other external cause,Contact with other specified venomous animals
+X28,Other external cause,Contact with other specified venomous plants
+X29,Other external cause,Contact with unspecified venomous animal or plant
+X30,Other external cause,Exposure to excessive natural heat
+X31,Other external cause,Exposure to excessive natural cold
+X32,Other external cause,Exposure to sunlight
+X33,Other external cause,Victim of lightning
+X34,Other external cause,Victim of earthquake
+X35,Other external cause,Victim of volcanic eruption
+X36,Other external cause,"Victim of avalanche, landslide and other earth movements"
+X37,Other external cause,Victim of cataclysmic storm
+X38,Other external cause,Victim of flood
+X39,Other external cause,Exposure to other and unspecified forces of nature
+X40,Other external cause,"Accidental poisoning by and exposure to nonopioid analgesics, antipyretics and antirheumatics"
+X41,Other external cause,"Accidental poisoning by and exposure to antiepileptic, sedative-hypnotic, antiparkinsonism and psychotropic drugs, not elsewhere classified"
+X42,Other external cause,"Accidental poisoning by and exposure to narcotics and psychodysleptics [hallucinogens], not elsewhere classified"
+X43,Other external cause,Accidental poisoning by and exposure to other drugs acting on the autonomic nervous system
+X44,Other external cause,"Accidental poisoning by and exposure to other and unspecified drugs, medicaments and biological substances"
+X45,Other external cause,Accidental poisoning by and exposure to alcohol
+X46,Other external cause,Accidental poisoning by and exposure to organic solvents and halogenated hydrocarbons and their vapours
+X47,Other external cause,Accidental poisoning by and exposure to other gases and vapours
+X48,Other external cause,Accidental poisoning by and exposure to pesticides
+X49,Other external cause,Accidental poisoning by and exposure to other and unspecified chemicals and noxious substances
+X50,Other external cause,Overexertion and strenuous or repetitive movements
+X51,Other external cause,Travel and motion
+X52,Other external cause,Prolonged stay in weightless environment
+X53,Other external cause,Lack of food
+X54,Other external cause,Lack of water
+X57,Other external cause,Unspecified privation
+X58,Other external cause,Exposure to other specified factors
+X59,Other external cause,Exposure to unspecified factor
+X60,Intentional self-harm,"Intentional self-poisoning by and exposure to nonopioid analgesics, antipyretics and antirheumatics"
+X61,Intentional self-harm,"Intentional self-poisoning by and exposure to antiepileptic, sedative-hypnotic, antiparkinsonism and psychotropic drugs, not elsewhere classified"
+X62,Intentional self-harm,"Intentional self-poisoning by and exposure to narcotics and psychodysleptics [hallucinogens], not elsewhere classified"
+X63,Intentional self-harm,Intentional self-poisoning by and exposure to other drugs acting on the autonomic nervous system
+X64,Intentional self-harm,"Intentional self-poisoning by and exposure to other and unspecified drugs, medicaments and biological substances"
+X65,Intentional self-harm,Intentional self-poisoning by and exposure to alcohol
+X66,Intentional self-harm,Intentional self-poisoning by and exposure to organic solvents and halogenated hydrocarbons and their vapours
+X67,Intentional self-harm,Intentional self-poisoning by and exposure to other gases and vapours
+X68,Intentional self-harm,Intentional self-poisoning by and exposure to pesticides
+X69,Intentional self-harm,Intentional self-poisoning by and exposure to other and unspecified chemicals and noxious substances
+X70,Intentional self-harm,"Intentional self-harm by hanging, strangulation and suffocation"
+X71,Intentional self-harm,Intentional self-harm by drowning and submersion
+X72,Intentional self-harm,Intentional self-harm by handgun discharge
+X73,Intentional self-harm,"Intentional self-harm by rifle, shotgun and larger firearm discharge"
+X74,Intentional self-harm,Intentional self-harm by other and unspecified firearm discharge
+X75,Intentional self-harm,Intentional self-harm by explosive material
+X76,Intentional self-harm,"Intentional self-harm by smoke, fire and flames"
+X77,Intentional self-harm,"Intentional self-harm by steam, hot vapours and hot objects"
+X78,Intentional self-harm,Intentional self-harm by sharp object
+X79,Intentional self-harm,Intentional self-harm by blunt object
+X80,Intentional self-harm,Intentional self-harm by jumping from a high place
+X81,Intentional self-harm,Intentional self-harm by jumping or lying before moving object
+X82,Intentional self-harm,Intentional self-harm by crashing of motor vehicle
+X83,Intentional self-harm,Intentional self-harm by other specified means
+X84,Intentional self-harm,Intentional self-harm by unspecified means
+X85,Assault,"Assault by drugs, medicaments and biological substances"
+X86,Assault,Assault by corrosive substance
+X87,Assault,Assault by pesticides
+X88,Assault,Assault by gases and vapours
+X89,Assault,Assault by other specified chemicals and noxious substances
+X90,Assault,Assault by unspecified chemical or noxious substance
+X91,Assault,"Assault by hanging, strangulation and suffocation"
+X92,Assault,Assault by drowning and submersion
+X93,Assault,Assault by handgun discharge
+X94,Assault,"Assault by rifle, shotgun and larger firearm discharge"
+X95,Assault,Assault by other and unspecified firearm discharge
+X96,Assault,Assault by explosive material
+X97,Assault,"Assault by smoke, fire and flames"
+X98,Assault,"Assault by steam, hot vapours and hot objects"
+X99,Assault,Assault by sharp object
+Y00,Assault,Assault by blunt object
+Y01,Assault,Assault by pushing from high place
+Y02,Assault,Assault by pushing or placing victim before moving object
+Y03,Assault,Assault by crashing of motor vehicle
+Y04,Assault,Assault by bodily force
+Y05,Assault,Sexual assault by bodily force
+Y06,Assault,Neglect and abandonment
+Y07,Assault,Other maltreatment
+Y08,Assault,Assault by other specified means
+Y09,Assault,Assault by unspecified means
+Y10,Event of undetermined intent,"Poisoning by and exposure to nonopioid analgesics, antipyretics and antirheumatics, undetermined intent"
+Y11,Event of undetermined intent,"Poisoning by and exposure to antiepileptic, sedative-hypnotic, antiparkinsonism and psychotropic drugs, not elsewhere classified, undetermined intent"
+Y12,Event of undetermined intent,"Poisoning by and exposure to narcotics and psychodysleptics [hallucinogens], not elsewhere classified, undetermined intent"
+Y13,Event of undetermined intent,"Poisoning by and exposure to other drugs acting on the autonomic nervous system, undetermined intent"
+Y14,Event of undetermined intent,"Poisoning by and exposure to other and unspecified drugs, medicaments and biological substances, undetermined intent"
+Y15,Event of undetermined intent,"Poisoning by and exposure to alcohol, undetermined intent"
+Y16,Event of undetermined intent,"Poisoning by and exposure to organic solvents and halogenated hydrocarbons and their vapours, undetermined intent"
+Y17,Event of undetermined intent,"Poisoning by and exposure to other gases and vapours, undetermined intent"
+Y18,Event of undetermined intent,"Poisoning by and exposure to pesticides, undetermined intent"
+Y19,Event of undetermined intent,"Poisoning by and exposure to other and unspecified chemicals and noxious substances, undetermined intent"
+Y20,Event of undetermined intent,"Hanging, strangulation and suffocation, undetermined intent"
+Y21,Event of undetermined intent,"Drowning and submersion, undetermined intent"
+Y22,Event of undetermined intent,"Handgun discharge, undetermined intent"
+Y23,Event of undetermined intent,"Rifle, shotgun and larger firearm discharge, undetermined intent"
+Y24,Event of undetermined intent,"Other and unspecified firearm discharge, undetermined intent"
+Y25,Event of undetermined intent,"Contact with explosive material, undetermined intent"
+Y26,Event of undetermined intent,"Exposure to smoke, fire and flames, undetermined intent"
+Y27,Event of undetermined intent,"Contact with steam, hot vapours and hot objects, undetermined intent"
+Y28,Event of undetermined intent,"Contact with sharp object, undetermined intent"
+Y29,Event of undetermined intent,"Contact with blunt object, undetermined intent"
+Y30,Event of undetermined intent,"Falling, jumping or pushed from a high place, undetermined intent"
+Y31,Event of undetermined intent,"Falling, lying or running before or into moving object, undetermined intent"
+Y32,Event of undetermined intent,"Crashing of motor vehicle, undetermined intent"
+Y33,Event of undetermined intent,"Other specified events, undetermined intent"
+Y34,Event of undetermined intent,"Unspecified event, undetermined intent"
+Y35,Legal intervention and operations of war,Legal intervention
+Y36,Legal intervention and operations of war,Operations of war
