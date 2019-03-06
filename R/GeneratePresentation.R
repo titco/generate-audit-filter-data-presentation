@@ -15,10 +15,12 @@
 GeneratePresentation <- function(centre.name, meeting.date, data.path,
                                  codebook.path,
                                  codebook.file.name = "codebook.csv") {
+    ## Load dplyr
+    library(dplyr)
     ## Get audit filter data
     all.data <- beehive::compile.centre.dataset(data.path, save = FALSE)
     ## Get ICD 10 mechanism data
-    icd.data <- read.csv("icd.codes.csv", stringsAsFactors = FALSE)
+    icd.data <- GenerateAuditFilterDataPresentation:::icd.codes
     rownames(icd.data) <- icd.data$code
     ## Get codebook
     codebook <- read.csv(paste0(codebook.path, codebook.file.name),
@@ -97,9 +99,9 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                        "</ol>"),
                      collapse = " \n")
     ## Create bootstrap table    
-    bootstrap.table <- kable(pre.bootstrap.table, format = "html", escape = FALSE) %>%
-        kable_styling(c("striped", "hover")) %>%
-        column_spec(column = 2, width_max = "15cm")
+    bootstrap.table <- knitr::kable(pre.bootstrap.table, format = "html", escape = FALSE) %>%
+        kableExtra::kable_styling(c("striped", "hover")) %>%
+        kableExtra::column_spec(column = 2, width_max = "15cm")
     bootstrap.table <- paste0(c("<h3>Overall filter data</h3>",
                                 bootstrap.table),
                               collapse = " \n")
@@ -160,8 +162,8 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
         case.header <- paste0("<h3 id=\"case-", id, "\">Case ", id, "</h3>")
         case <- case[-grep("id", rownames(case)), ]
         colnames(case) <- NULL
-        case.table <- kable(case, row.names = FALSE, format = "html", escape = FALSE) %>%
-            kable_styling(c("striped", "hover"))
+        case.table <- knitr::kable(case, row.names = FALSE, format = "html", escape = FALSE) %>%
+            kableExtra::kable_styling(c("striped", "hover"))
         case.footer <- "<a href=\"#case-list\">Back to case list</a>"
         case.table <- paste0(c(case.header, case.table, case.footer),
                              collapse = " \n")
