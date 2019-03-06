@@ -15,10 +15,12 @@ Imports: RMySQL,
    	 knitr,	
 	 lattice,
          latticeExtra,
-	 plyr,	
+	 plyr,
+	 dplyr,
          tabplot,
 	 xtable,
-	 beehive
+	 beehive,
+	 kableExtra
 License: MIT
 Encoding: UTF-8
 LazyData: true
