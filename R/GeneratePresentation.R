@@ -3,8 +3,10 @@
 #' Main function for generating the audit filter review report.
 #' @param centre.name Character vector of length 1. The name of the centre. No
 #'     default.
-#' @param meeting.date Character vector of length 1. The date whan the meeting
-#'     is. No default.
+#' @param this.meeting.date Character vector of length 1. The date whan the
+#'     meeting is. No default.
+#' @param last.meeting.date Character vector of length 1. The date whan the last
+#'     meeting was. No default.
 #' @param data.path Character vector of length 1. The path to the raw data
 #'     directory. No default.
 #' @param codebook.path Character vector of length 1. The path to the data
@@ -12,7 +14,8 @@
 #' @param codebook.file.name Character vector of length 1. The codebook file
 #'     name. Defaults to "codebook.csv".
 #' @export
-GeneratePresentation <- function(centre.name, meeting.date, data.path,
+GeneratePresentation <- function(centre.name, this.meeting.date,
+                                 last.meeting.date, data.path,
                                  codebook.path,
                                  codebook.file.name = "codebook.csv") {
     ## Load dplyr
@@ -64,7 +67,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                                  "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
                                  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
                                  "<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->",
-                                 "<title>", toupper(centre.name), " Audit Filter Review Board Meeting ", meeting.date, "</title>",
+                                 "<title>", toupper(centre.name), " Audit Filter Review Board Meeting ", this.meeting.date, "</title>",
                                  "<!-- Bootstrap -->",
                                  "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\" integrity=\"sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu\" crossorigin=\"anonymous\">",
                                  "<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->",
@@ -75,7 +78,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                                  "<![endif]-->",
                                  "</head>",
                                  "<body>",
-                                 "<h1>", toupper(centre.name), " Audit Filter Review Board Meeting ", meeting.date, "</h1>"),
+                                 "<h1>", toupper(centre.name), " Audit Filter Review Board Meeting ", this.meeting.date, "</h1>"),
                                collapse = " \n")
     ## Create bootstrap html footer
     bootstrap.footer <- paste0(c("<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->",
@@ -181,7 +184,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
     ## Combine bootstrap presentation elements
     bootstrap.presentation <- paste0(c(bootstrap.header, agenda, bootstrap.table, case.list, unlist(case.tables), bootstrap.footer),
                                      collapse = " \n")
-    file.name <- paste0(tolower(centre.name), "-audit-filter-presentation-", gsub(" ", "-", gsub(",", "", tolower(meeting.date))), ".html")
+    file.name <- paste0(tolower(centre.name), "-audit-filter-presentation-", gsub(" ", "-", gsub(",", "", tolower(this.meeting.date))), ".html")
     write(bootstrap.presentation, file.name)
     ## Presentation generated
     message(paste0("Presentation generated and saved to disk as ", file.name))
