@@ -49,6 +49,12 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     if (!is.null(last.meeting.date))
             all.data <- all.data[all.data$doar > last.meeting.date, ]
     audit.filter.data <- all.data[, grep("^taft[0-9]*\\.*[0-9]*$", colnames(all.data), value = FALSE)]
+    audit.filter.data[] <- lapply(audit.filter.data, function(filter.data) {
+        return.object <- filter.data
+        if (all(is.na(filter.data)))
+            return.object <- NULL
+        return(return.object)
+    })
     rownames(audit.filter.data) <- all.data[, "pid"]
     levels <- beehive::get.vector(codebook[names(audit.filter.data)[1], "valid_values"])
     labels <- beehive::get.vector(codebook[names(audit.filter.data)[1], "value_labels"])
