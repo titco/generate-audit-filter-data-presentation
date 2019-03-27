@@ -3,8 +3,12 @@
 #' Main function for generating the audit filter review report.
 #' @param centre.name Character vector of length 1. The name of the centre. No
 #'     default.
-#' @param meeting.date Character vector of length 1. The date whan the meeting
-#'     is. No default.
+#' @param this.meeting.date Character vector of length 1. The date whan the
+#'     meeting is. Should be formatted as YYYY-MM-DD. No default.
+#' @param last.meeting.date Character vector of length 1. The date whan the last
+#'     meeting was or NULL, in which case it is assumed that no previous
+#'     meetings have been held and all data is used. Should be formatted as
+#'     YYYY-MM-DD. Default is NULL.
 #' @param data.path Character vector of length 1. The path to the raw data
 #'     directory. No default.
 #' @param codebook.path Character vector of length 1. The path to the data
@@ -12,11 +16,24 @@
 #' @param codebook.file.name Character vector of length 1. The codebook file
 #'     name. Defaults to "codebook.csv".
 #' @export
-GeneratePresentation <- function(centre.name, meeting.date, data.path,
+GeneratePresentation <- function(centre.name, this.meeting.date,
+                                 last.meeting.date = NULL, data.path,
                                  codebook.path,
                                  codebook.file.name = "codebook.csv") {
     ## Load dplyr
     library(dplyr)
+    ## Error handling
+    date.error.message <- "meeting date is not correctly formatted"
+    this.meeting.date <- tryCatch(expr = as.Date(this.meeting.date),
+                                  error = function(e) {
+                                      stop (date.error.message)
+                                  })
+    if (!is.null(last.meeting.date)) {
+        last.meeting.date <- tryCatch(expr = as.Date(last.meeting.date),
+                                      error = function(e) {
+                                          stop (date.error.message)
+                                      })
+    }
     ## Get audit filter data
     all.data <- beehive::compile.centre.dataset(data.path, save = FALSE)
     ## Get ICD 10 mechanism data
@@ -27,7 +44,17 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                          stringsAsFactors = FALSE)
     rownames(codebook) <- codebook$name
     ## Create audit filter data overview
-    audit.filter.data <- all.data[, grep("^taft[0-9]*$", colnames(all.data))]
+    all.data$doar <- as.Date(all.data$doar)
+    all.data <- all.data[all.data$doar < this.meeting.date, ]
+    if (!is.null(last.meeting.date))
+            all.data <- all.data[all.data$doar > last.meeting.date, ]
+    audit.filter.data <- all.data[, grep("^taft[0-9]*\\.*[0-9]*$", colnames(all.data), value = FALSE)]
+    audit.filter.data[] <- lapply(audit.filter.data, function(filter.data) {
+        return.object <- filter.data
+        if (all(is.na(filter.data)))
+            return.object <- NULL
+        return(return.object)
+    })
     rownames(audit.filter.data) <- all.data[, "pid"]
     levels <- beehive::get.vector(codebook[names(audit.filter.data)[1], "valid_values"])
     labels <- beehive::get.vector(codebook[names(audit.filter.data)[1], "value_labels"])
@@ -57,6 +84,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
     pre.bootstrap.table <- cbind(rep("<input type=\"checkbox\" />", length(filter.names)), audit.filter.data.table)
     colnames(pre.bootstrap.table)[1] <- "Check"
     ## Create bootstrap html header
+    formatted.meeting.date <- format(this.meeting.date, "%d %B, %Y")
     bootstrap.header <- paste0(c("<!doctype html>",
                                  "<html lang=\"en\">",
                                  "<head>",
@@ -64,7 +92,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                                  "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
                                  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">",
                                  "<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->",
-                                 "<title>", toupper(centre.name), " Audit Filter Review Board Meeting ", meeting.date, "</title>",
+                                 "<title>", toupper(centre.name), " Audit Filter Review Board Meeting ", formatted.meeting.date, "</title>",
                                  "<!-- Bootstrap -->",
                                  "<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\" integrity=\"sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu\" crossorigin=\"anonymous\">",
                                  "<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->",
@@ -75,7 +103,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                                  "<![endif]-->",
                                  "</head>",
                                  "<body>",
-                                 "<h1>", toupper(centre.name), " Audit Filter Review Board Meeting ", meeting.date, "</h1>"),
+                                 "<h1>", toupper(centre.name), " Audit Filter Review Board Meeting ", formatted.meeting.date, "</h1>"),
                                collapse = " \n")
     ## Create bootstrap html footer
     bootstrap.footer <- paste0(c("<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->",
@@ -181,7 +209,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
     ## Combine bootstrap presentation elements
     bootstrap.presentation <- paste0(c(bootstrap.header, agenda, case.list, unlist(case.tables), bootstrap.table, bootstrap.footer),
                                      collapse = " \n")
-    file.name <- paste0(tolower(centre.name), "-audit-filter-presentation-", gsub(" ", "-", gsub(",", "", tolower(meeting.date))), ".html")
+    file.name <- paste0(tolower(centre.name), "-audit-filter-presentation-", gsub(" ", "-", gsub(",", "", this.meeting.date)), ".html")
     write(bootstrap.presentation, file.name)
     ## Presentation generated
     message(paste0("Presentation generated and saved to disk as ", file.name))
