@@ -91,9 +91,9 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                        paste0("<li>",
                               c("Welcome and introductions from the PI and chair",
                                 "Summary of action points from last meeting (co-chair) [5 minutes]",
-                                "Presentation of overall filter data (co-chair) [5-10 minutes]",
                                 "Discussion of flagged cases (chair) [30 minutes]",
                                 "Summary of action points (co-chair) [5 minutes]",
+                                "Presentation of overall filter data (co-chair) [5-10 minutes]",                                
                                 "Next meeting (chair/co-chair)"),
                               "</li>"),
                        "</ol>"),
@@ -179,7 +179,7 @@ GeneratePresentation <- function(centre.name, meeting.date, data.path,
                           "</ul>"),
                         collapse = " \n")
     ## Combine bootstrap presentation elements
-    bootstrap.presentation <- paste0(c(bootstrap.header, agenda, bootstrap.table, case.list, unlist(case.tables), bootstrap.footer),
+    bootstrap.presentation <- paste0(c(bootstrap.header, agenda, case.list, unlist(case.tables), bootstrap.table, bootstrap.footer),
                                      collapse = " \n")
     file.name <- paste0(tolower(centre.name), "-audit-filter-presentation-", gsub(" ", "-", gsub(",", "", tolower(meeting.date))), ".html")
     write(bootstrap.presentation, file.name)
