@@ -4,15 +4,21 @@
 \alias{GeneratePresentation}
 \title{Generate presentation}
 \usage{
-GeneratePresentation(centre.name, meeting.date, data.path, codebook.path,
+GeneratePresentation(centre.name, this.meeting.date,
+  last.meeting.date = NULL, data.path, codebook.path,
   codebook.file.name = "codebook.csv")
 }
 \arguments{
 \item{centre.name}{Character vector of length 1. The name of the centre. No
 default.}
 
-\item{meeting.date}{Character vector of length 1. The date whan the meeting
-is. No default.}
+\item{this.meeting.date}{Character vector of length 1. The date whan the
+meeting is. Should be formatted as YYYY-MM-DD. No default.}
+
+\item{last.meeting.date}{Character vector of length 1. The date whan the last
+meeting was or NULL, in which case it is assumed that no previous
+meetings have been held and all data is used. Should be formatted as
+YYYY-MM-DD. Default is NULL.}
 
 \item{data.path}{Character vector of length 1. The path to the raw data
 directory. No default.}
