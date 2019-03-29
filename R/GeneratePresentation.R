@@ -47,7 +47,8 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     all.data$doar <- as.Date(all.data$doar)
     all.data <- all.data[all.data$doar < this.meeting.date, ]
     if (!is.null(last.meeting.date))
-            all.data <- all.data[all.data$doar > last.meeting.date, ]
+        all.data <- all.data[all.data$doar > last.meeting.date, ]
+    rownames(all.data) <- all.data$pid
     audit.filter.data <- all.data[, grep("^taft[0-9]*\\.*[0-9]*$", colnames(all.data), value = FALSE)]
     audit.filter.data[] <- lapply(audit.filter.data, function(filter.data) {
         return.object <- filter.data
@@ -171,7 +172,12 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
         id <- case[, "pid"]
         case[, "pid"] <- NULL
         case[, "doar"] <- NULL
-        case[, "moi"] <- icd.data[case[, "moi"], "full_mechanism"]
+        icd.mechanism.code <- case[, "moi"]
+        search.term <- substring(icd.mechanism.code, 1, 3)
+        full.mechanism <- icd.data[search.term, "full_mechanism"]
+        if (is.na(full.mechanism))
+            full.mechanism <- case[, "moi"]
+        case[, "moi"] <- full.mechanism
         injuries <- lapply(injury.data.list, function(injury.data) injury.data[id]) %>%
             do.call(what = rbind) %>% trimws()
         case <- t(case) %>% rbind(injuries)
