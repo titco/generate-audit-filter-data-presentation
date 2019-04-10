@@ -9,6 +9,10 @@
 #'     meeting was or NULL, in which case it is assumed that no previous
 #'     meetings have been held and all data is used. Should be formatted as
 #'     YYYY-MM-DD. Default is NULL.
+#' @param action.points.document Character vector of length 1. The name of the
+#'     file with the action points from the last meeting. Defaults to
+#'     paste0(tolower(centre.name), "-audit-filter-meeting-notes-",
+#'     last.meeting.date).
 #' @param data.path Character vector of length 1. The path to the raw data
 #'     directory. No default.
 #' @param codebook.path Character vector of length 1. The path to the data
@@ -17,7 +21,9 @@
 #'     name. Defaults to "codebook.csv".
 #' @export
 GeneratePresentation <- function(centre.name, this.meeting.date,
-                                 last.meeting.date = NULL, data.path,
+                                 last.meeting.date = NULL,
+                                 action.points.document = paste0(tolower(centre.name), "-audit-filter-meeting-notes-", last.meeting.date),
+                                 data.path,
                                  codebook.path,
                                  codebook.file.name = "codebook.csv") {
     ## Load dplyr
@@ -125,6 +131,28 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
                               "</li>"),
                        "</ol>"),
                      collapse = " \n")
+    ## Import action points
+    action.points.file.name <- list.files(pattern = paste0("^", action.points.document))
+    if (length(action.points.file.name) > 1) {
+        warning (paste0("There are more than one file with the name ",
+                        action.points.document,
+                        " so only the file named ", action.points.file.name[1],
+                        " is imported"))
+        action.points.file.name <- action.points.file.name[1]
+    }
+    ## action.points.text <- readtext::readtext(action.points.file.name)$text
+    ## first <- regexpr("# Action points", action.points.text, fixed = TRUE)
+    ## first <- first[1] + attr(first, "match.length")
+    ## last <- gregexpr("- [a-z]* ", action.points.text)
+    ## action.points <- substring()
+    action.points <- read.csv(action.points.file.name, header = FALSE, stringsAsFactors = FALSE)
+    formatted.action.points <- paste0(c("<h2>Action points from last meeting</h2>",
+                                        "<ol>",
+                                        paste0("<li>",
+                                               action.points[, 1],
+                                               "</li>"),
+                                        "</ol>"),
+                                      collapse = "\n")
     ## Create bootstrap table    
     bootstrap.table <- knitr::kable(pre.bootstrap.table, format = "html", escape = FALSE) %>%
         kableExtra::kable_styling(c("striped", "hover")) %>%
@@ -211,7 +239,7 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
                           "</ul>"),
                         collapse = " \n")
     ## Combine bootstrap presentation elements
-    bootstrap.presentation <- paste0(c(bootstrap.header, agenda, case.list, unlist(case.tables), bootstrap.table, bootstrap.footer),
+    bootstrap.presentation <- paste0(c(bootstrap.header, agenda, formatted.action.points, case.list, unlist(case.tables), bootstrap.table, bootstrap.footer),
                                      collapse = " \n")
     file.name <- paste0(tolower(centre.name), "-audit-filter-presentation-", gsub(" ", "-", gsub(",", "", this.meeting.date)), ".html")
     write(bootstrap.presentation, file.name)
