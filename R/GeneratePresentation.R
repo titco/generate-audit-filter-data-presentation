@@ -70,8 +70,6 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     tables.list <- list(tables = audit.filter.tables,
                         prop.tables = audit.filter.prop.tables)
     combined.tables <- lapply(tables.list, function(tables) do.call(rbind, tables))
-    order.vector <- combined.tables$tables[, "Not done"]
-    combined.tables <- lapply(combined.tables, function(tables) tables[order(-order.vector), ])
     filter.names <- rownames(combined.tables$tables)
     combined.table <- matrix(with(combined.tables, paste0(tables, " (", prop.tables, ")")), nrow = nrow(combined.tables$tables))
     rownames(combined.table) <- filter.names
