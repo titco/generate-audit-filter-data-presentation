@@ -54,6 +54,8 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     all.data <- all.data[all.data$doar < this.meeting.date, ]
     if (!is.null(last.meeting.date))
         all.data <- all.data[all.data$doar > last.meeting.date, ]
+    if (nrow(all.data) == 0)
+        stop ("There are no cases between the dates specified")
     rownames(all.data) <- all.data$pid
     audit.filter.data <- all.data[, grep("^taft[0-9]*\\.*[0-9]*$", colnames(all.data), value = FALSE)]
     audit.filter.data[] <- lapply(audit.filter.data, function(filter.data) {
