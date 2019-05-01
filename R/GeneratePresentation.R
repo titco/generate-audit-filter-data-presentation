@@ -113,7 +113,9 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     colnames(combined.table) <- paste0(labels, " (%)")
     combined.table <- as.data.frame(combined.table, stringsAsFactors = FALSE)
     audit.filter.data.table <- cbind(rownames(combined.table), combined.table)
+    target <- codebook$name[grep("^taft", codebook$name)]
     colnames(audit.filter.data.table)[1] <- "Filter"
+    audit.filter.data.table <- audit.filter.data.table[match(target, audit.filter.data.table$Filter), ]
     rownames(audit.filter.data.table) <- NULL
     audit.filter.data.table$Filter <- as.character(audit.filter.data.table$Filter)
     audit.filter.data.table$Filter <- codebook[audit.filter.data.table$Filter, "label"]
