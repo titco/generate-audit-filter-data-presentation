@@ -48,12 +48,47 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     ## Get codebook
     codebook <- read.csv(paste0(codebook.path, codebook.file.name),
                          stringsAsFactors = FALSE)
+    ## Add time between injury and arrival and time between arrival and
+    ## discharge in hours
+    if (all(sapply(c("doi","toi","doar","toar","dodd","todd"), function(x) any(x == colnames(all.data))))) {
+        datetimes <- list(doi.toi = with(all.data, paste(doi, toi)),
+                          doar.toar = with(all.data, paste(doar, toar)),
+                          dodd.todd = with(all.data, paste(dodd, todd)))
+        datetimes <- lapply(datetimes, function(datetime) {
+            datetime[grep("NA|999", datetime)] <- NA
+            datetime <- as.POSIXct(datetime)
+            return(datetime)
+        })
+        all.data$teap <- round(as.numeric(with(datetimes, difftime(doar.toar, doi.toi, units = "hours"))), digits = 1)
+        all.data$tadd <- round(as.numeric(with(datetimes, difftime(dodd.todd, doar.toar, units = "hours"))), digits = 1)
+        empty.entry <- vector("character", ncol(codebook))
+        if (!("teap" %in% codebook$name)) {
+            teap <- empty.entry
+            teap[1] <- "Time elapsed between trauma and arrival in hours"
+            teap[2] <- "teap"
+            codebook <- rbind(codebook, teap)
+            codebook[codebook$name == "teap", "type"] <- "quantitative"
+        }
+        if (!("tadd" %in% codebook$name)) {
+            tadd <- empty.entry
+            tadd[1] <- "Time elapsed between arrival and death or discharge in hours"
+            tadd[2] <- "tadd"
+            codebook <- rbind(codebook, tadd)
+            codebook[codebook$name == "tadd", "type"] <- "quantitative"
+        }
+    }
     rownames(codebook) <- codebook$name
+    ## Check for duplicate patient IDs
+    duplicate.pids <- duplicated(all.data$pid)
+    if (length(duplicate.pids) > 0)
+        stop (paste0("pid ", paste0(all.data$pid[duplicate.pids], collapse = ", "), " is/are duplicated. Please remove the duplicated files."))
     ## Create audit filter data overview
     all.data$doar <- as.Date(all.data$doar)
     all.data <- all.data[all.data$doar < this.meeting.date, ]
     if (!is.null(last.meeting.date))
         all.data <- all.data[all.data$doar > last.meeting.date, ]
+    if (nrow(all.data) == 0)
+        stop ("There are no cases between the dates specified")
     rownames(all.data) <- all.data$pid
     audit.filter.data <- all.data[, grep("^taft[0-9]*\\.*[0-9]*$", colnames(all.data), value = FALSE)]
     audit.filter.data[] <- lapply(audit.filter.data, function(filter.data) {
@@ -82,7 +117,9 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     colnames(combined.table) <- paste0(labels, " (%)")
     combined.table <- as.data.frame(combined.table, stringsAsFactors = FALSE)
     audit.filter.data.table <- cbind(rownames(combined.table), combined.table)
+    target <- codebook$name[grep("^taft", codebook$name)]
     colnames(audit.filter.data.table)[1] <- "Filter"
+    audit.filter.data.table <- audit.filter.data.table[match(target, audit.filter.data.table$Filter), ]
     rownames(audit.filter.data.table) <- NULL
     audit.filter.data.table$Filter <- as.character(audit.filter.data.table$Filter)
     audit.filter.data.table$Filter <- codebook[audit.filter.data.table$Filter, "label"]
@@ -145,14 +182,17 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     ## first <- first[1] + attr(first, "match.length")
     ## last <- gregexpr("- [a-z]* ", action.points.text)
     ## action.points <- substring()
-    action.points <- read.csv(action.points.file.name, header = FALSE, stringsAsFactors = FALSE)
-    formatted.action.points <- paste0(c("<h2>Action points from last meeting</h2>",
-                                        "<ol>",
-                                        paste0("<li>",
-                                               action.points[, 1],
-                                               "</li>"),
-                                        "</ol>"),
-                                      collapse = "\n")
+    formatted.action.points <- ""
+    if (file.exists(action.points.document)) {
+        action.points <- read.csv(action.points.document, header = FALSE, stringsAsFactors = FALSE)
+        formatted.action.points <- paste0(c("<h2>Action points from last meeting</h2>",
+                                            "<ol>",
+                                            paste0("<li>",
+                                                   action.points[, 1],
+                                                   "</li>"),
+                                            "</ol>"),
+                                          collapse = "\n")
+    }
     ## Create bootstrap table    
     bootstrap.table <- knitr::kable(pre.bootstrap.table, format = "html", escape = FALSE) %>%
         kableExtra::kable_styling(c("striped", "hover")) %>%
