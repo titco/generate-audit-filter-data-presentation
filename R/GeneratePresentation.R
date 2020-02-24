@@ -79,7 +79,7 @@ GeneratePresentation <- function(centre.name, this.meeting.date,
     }
     rownames(codebook) <- codebook$name
     ## Check for duplicate patient IDs
-    duplicate.pids <- duplicated(all.data$pid)
+    duplicate.pids <- all.data$pid[duplicated(all.data$pid)]
     if (length(duplicate.pids) > 0)
         stop (paste0("pid ", paste0(all.data$pid[duplicate.pids], collapse = ", "), " is/are duplicated. Please remove the duplicated files."))
     ## Create audit filter data overview
